@@ -1,0 +1,51 @@
+import 'package:devquiz/shared/widgets/progress_indicator_widgets.dart';
+import 'package:flutter/material.dart';
+
+import '../../../core/app_colors.dart';
+import '../../../core/app_images.dart';
+import '../../../core/core.dart';
+
+class QuizCardWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 30,
+            width: 30,
+            child: Image.asset(AppImages.blocks),
+          ),
+          SizedBox(height: 20),
+          Text(
+            "Gerenciamento de estado",
+            style: AppTextStyles.heading15,
+          ),
+          SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Text(
+                  "3/10",
+                  style: AppTextStyles.body11,
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: ProgressIndicatorWidget(value: 0.3),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
